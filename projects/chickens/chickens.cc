@@ -21,29 +21,26 @@
 // We should probably fix the bazel scripts to allow having multiple
 // #pragma hls_top per file, or we can split this into multiple folders
 // which I'm too lazy to do now.
+
 #pragma hls_top
 struct Coords move_player(struct Coords coords, DIRECTION direction)
 {
-  struct Coords new_coords = {};
+  struct Coords new_coords = coords;
 
   if (direction == MOVE_UP)
   {
     new_coords.x = (coords.x - 1 + BOARD_DIMS) % BOARD_DIMS;
-    new_coords.y = coords.y + 0;
   }
   else if (direction == MOVE_DOWN)
   {
     new_coords.x = (coords.x + 1) % BOARD_DIMS;
-    new_coords.y = coords.y + 0;
   }
   else if (direction == MOVE_LEFT)
   {
-    new_coords.x = coords.x + 0;
     new_coords.y = (coords.y - 1 + BOARD_DIMS) % BOARD_DIMS;
   }
   else if (direction == MOVE_RIGHT)
   {
-    new_coords.x = coords.x + 0;
     new_coords.y = (coords.y + 1) % BOARD_DIMS;
   }
 

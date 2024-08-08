@@ -28,8 +28,8 @@ enum DIRECTION
 
 struct Coords
 {
-    int x;
-    int y;
+    unsigned char x;
+    unsigned char y;
 };
 
 struct Players
